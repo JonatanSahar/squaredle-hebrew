@@ -1,0 +1,36 @@
+name: generate
+on:
+  workflow_dispatch:
+    inputs:
+      start:
+        description: "Start date YYYY-MM-DD"
+        required: true
+      days:
+        description: "Days to generate"
+        required: true
+        default: "365"
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - run: pip install uv
+      - run: cd build && uv sync
+      - run: |
+          cd build && uv run squaredle-gen \
+            --start "${{ inputs.start }}" --days "${{ inputs.days }}" --seed 20260414 \
+            --hspell data/hspell/words.txt \
+            --freq data/opensubtitles-he-freq.txt \
+            --freq-top-n 40000 \
+            --blacklist data/blacklist.txt \
+            --out ../site/puzzles
+      - run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add site/puzzles
+          git commit -m "data: extend puzzle horizon" || echo "nothing to commit"
+          git push

@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="he">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5efe4">
+  <title>Squaredle עברי</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="title-wrap">
+      <p class="eyebrow">חידה יומית</p>
+      <h1>Squaredle עברי</h1>
+    </div>
+    <div class="meta" aria-live="polite">
+      <div class="pill">
+        <span class="pill-label">תאריך</span>
+        <strong id="puzzle-date">...</strong>
+      </div>
+      <div class="pill">
+        <span class="pill-label">קושי</span>
+        <strong id="difficulty">...</strong>
+      </div>
+      <div class="pill">
+        <span class="pill-label">התקדמות</span>
+        <strong id="progress">0 / 0</strong>
+      </div>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="board-panel">
+      <p id="status" class="status" role="status" aria-live="polite">טוען חידה...</p>
+
+      <div id="board" class="board" aria-label="לוח המשחק"></div>
+
+      <section class="current-wrap" aria-label="בחירה נוכחית">
+        <div class="section-kicker">בחירה נוכחית</div>
+        <div id="current" class="current" dir="rtl"></div>
+      </section>
+
+      <div class="controls">
+        <button id="submit" type="button">אישור מילה</button>
+        <button id="clear" type="button" class="secondary">ניקוי</button>
+        <button id="reveal" type="button" class="danger">גילוי תשובות</button>
+      </div>
+    </section>
+
+    <aside class="side-panel">
+      <section class="card">
+        <div class="section-head">
+          <h2>מילים שנמצאו</h2>
+          <span id="found-count">0</span>
+        </div>
+        <p id="found-empty" class="empty">עוד לא נמצאו מילים.</p>
+        <ul id="found-list" class="word-list" aria-live="polite"></ul>
+      </section>
+
+      <section id="answers-panel" class="card" hidden>
+        <div class="section-head">
+          <h2>כל התשובות</h2>
+          <span id="answers-summary"></span>
+        </div>
+        <div id="answers" class="answers"></div>
+      </section>
+
+      <section class="card note">
+        <h2>הערות</h2>
+        <p>האותיות בלוח נשמרות ומוצגות בצורה מנורמלת. ברשימות המילים מוצגות אותיות סופיות תקניות.</p>
+        <p>החידה היומית נקבעת לפי התאריך ב־Asia/Jerusalem, וההתקדמות נשמרת רק בדפדפן המקומי.</p>
+      </section>
+    </aside>
+  </main>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

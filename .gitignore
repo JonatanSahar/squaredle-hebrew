@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+.pytest_cache/
+build/dist/
+build/data/hspell/*.tmp
+.DS_Store
+.claude/
+.dual-graph/
+.codex
+.env

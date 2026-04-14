@@ -1,0 +1,5 @@
+Squaredle Hebrew
+
+This project includes:
+- Hspell (AGPL-3.0-or-later). See `LICENSES/HSPELL.txt`. https://hspell.sourceforge.net/
+- OpenSubtitles-he frequency list (CC BY-SA 4.0) via hermitdave/FrequencyWords.

@@ -1,0 +1,12 @@
+Hspell licensing note
+=====================
+
+Hspell is distributed under the GNU Affero General Public License,
+version 3 or (at your option) any later version.
+
+Project home: https://hspell.sourceforge.net/
+
+This repository does not yet vendor Hspell source or data. When Hspell
+artifacts are imported in Phase 2, replace this note with the exact
+upstream license text shipped with the imported release and keep this file
+as the canonical license copy referenced by `NOTICE`.

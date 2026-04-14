@@ -35,7 +35,7 @@ def test_cli_generates_one_puzzle(tmp_path: Path) -> None:
     data = json.loads((out / "2026-04-14.json").read_text(encoding="utf-8"))
     assert data["date"] == "2026-04-14"
     assert data["version"] == 1
-    assert len(data["grid"]) == 5
-    assert all(len(row) == 5 for row in data["grid"])
-    assert 20 <= data["counts"]["total"] <= 100
+    assert len(data["grid"]) == 4
+    assert all(len(row) == 4 for row in data["grid"])
+    assert 10 <= data["counts"]["total"] <= 100
     assert data["difficulty"] in ("easy", "medium", "hard")

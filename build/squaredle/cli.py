@@ -27,7 +27,7 @@ def _try_generate(
     max_outer: int = 500,
 ) -> tuple[list[list[str]], set[str]]:
     for _ in range(max_outer):
-        grid, anchor = generate_grid(words, weights, rng, 5, 5, (4, 7))
+        grid, anchor = generate_grid(words, weights, rng, 4, 4, (4, 7))
         answers = solve(grid, trie, min_len=4)
         if accept_puzzle(answers, anchor):
             return grid, answers

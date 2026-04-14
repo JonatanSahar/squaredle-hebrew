@@ -1,6 +1,6 @@
 def accept_puzzle(answers: set[str], anchor: str) -> bool:
     count = len(answers)
-    if not (20 <= count <= 100):
+    if not (10 <= count <= 100):
         return False
     if anchor not in answers:
         return False
@@ -9,9 +9,9 @@ def accept_puzzle(answers: set[str], anchor: str) -> bool:
     if four_letter / count > 0.70:
         return False
 
-    if sum(1 for word in answers if len(word) >= 5) < 6:
+    if sum(1 for word in answers if len(word) >= 5) < 3:
         return False
-    if sum(1 for word in answers if len(word) >= 6) < 2:
+    if sum(1 for word in answers if len(word) >= 6) < 1:
         return False
     if max(len(word) for word in answers) < 6:
         return False

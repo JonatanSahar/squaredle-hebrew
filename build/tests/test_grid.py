@@ -53,3 +53,30 @@ def test_generate_grid_respects_letter_caps() -> None:
     from collections import Counter
 
     assert max(Counter(flat).values()) <= 4
+
+
+def test_generate_grid_stable_across_weight_dict_order() -> None:
+    words = {"שלומ", "אבגד", "בגדמ", "ספרימ"}
+    alphabet = "אבגדהוזחטיכלמנסעפצקרשת"
+    ordered = {c: 1.0 for c in alphabet}
+    reversed_order = {c: 1.0 for c in reversed(alphabet)}
+
+    grid_a, anchor_a = generate_grid(
+        words,
+        ordered,
+        random.Random(7),
+        5,
+        5,
+        (4, 6),
+    )
+    grid_b, anchor_b = generate_grid(
+        words,
+        reversed_order,
+        random.Random(7),
+        5,
+        5,
+        (4, 6),
+    )
+
+    assert anchor_a == anchor_b
+    assert grid_a == grid_b

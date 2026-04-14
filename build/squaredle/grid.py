@@ -55,7 +55,7 @@ def place_word(
 
 
 def _weighted_choice(rng: random.Random, weights: dict[str, float]) -> str:
-    items = list(weights.items())
+    items = sorted(weights.items())
     total = sum(weight for _, weight in items)
     target = rng.random() * total
     running = 0.0
@@ -96,6 +96,7 @@ def generate_grid(
         for word in answer_words
         if anchor_len_range[0] <= len(word) <= anchor_len_range[1]
     ]
+    eligible.sort()
     if not eligible:
         raise ValueError("no anchor candidates")
 

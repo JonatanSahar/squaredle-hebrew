@@ -24,7 +24,7 @@ def _try_generate(
     weights: dict[str, float],
     trie: Trie,
     rng: random.Random,
-    max_outer: int = 200,
+    max_outer: int = 500,
 ) -> tuple[list[list[str]], set[str]]:
     for _ in range(max_outer):
         grid, anchor = generate_grid(words, weights, rng, 5, 5, (4, 7))

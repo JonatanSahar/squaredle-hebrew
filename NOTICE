@@ -1,5 +1,9 @@
 Squaredle Hebrew
 
 This project includes:
-- Hspell (AGPL-3.0-or-later). See `LICENSES/HSPELL.txt`. https://hspell.sourceforge.net/
+- Hspell-derived Hebrew word lists vendored via `eyaler/hebrew_wordlists`.
+  Hspell is copyright (C) 2000-2017, Nadav Har'El and Dan Kenigsberg, and is
+  licensed under the GNU Affero General Public License v3.
+  See `LICENSES/HSPELL.txt` and `LICENSES/HSPELL-ATTRIBUTION.txt`.
+- `cc100_intersect_no_fatverb.csv` from `eyaler/hebrew_wordlists` for reference.
 - OpenSubtitles-he frequency list (CC BY-SA 4.0) via hermitdave/FrequencyWords.

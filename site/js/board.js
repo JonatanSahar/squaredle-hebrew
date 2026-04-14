@@ -4,8 +4,12 @@ export function cellKey(row, col) {
 
 export function renderBoard(boardEl, grid) {
   boardEl.replaceChildren();
-  boardEl.dataset.rows = String(grid.length);
-  boardEl.dataset.cols = String(grid[0]?.length ?? 0);
+  const rows = grid.length;
+  const cols = grid[0]?.length ?? 0;
+  boardEl.dataset.rows = String(rows);
+  boardEl.dataset.cols = String(cols);
+  boardEl.style.setProperty("--cols", String(cols));
+  boardEl.style.setProperty("--rows", String(rows));
 
   for (let row = 0; row < grid.length; row += 1) {
     for (let col = 0; col < grid[row].length; col += 1) {

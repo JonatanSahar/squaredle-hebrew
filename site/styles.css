@@ -136,7 +136,7 @@ select {
 
 .board {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--cols, 5), minmax(0, 1fr));
   gap: 0;
   max-width: min(92vw, 520px);
   margin-inline: auto;

@@ -149,7 +149,7 @@ export function attachInput(
       return;
     }
 
-    const hovered = cellFromPoint(boardEl, event.clientX, event.clientY);
+    const hovered = cellFromPoint(boardEl, event.clientX, event.clientY, { innerRatio: 0.55 });
     const distance = Math.hypot(event.clientX - session.startX, event.clientY - session.startY);
 
     if (!session.dragStarted) {

@@ -40,13 +40,30 @@ export function cellFromElement(element) {
   };
 }
 
-export function cellFromPoint(boardEl, x, y) {
+export function cellFromPoint(boardEl, x, y, { innerRatio = 1 } = {}) {
   const raw = document.elementFromPoint(x, y);
   if (!raw || !boardEl.contains(raw)) {
     return null;
   }
 
-  return cellFromElement(raw);
+  const cellEl = raw.closest?.(".cell");
+  if (!cellEl) {
+    return null;
+  }
+
+  if (innerRatio < 1) {
+    const rect = cellEl.getBoundingClientRect();
+    const inset = (1 - innerRatio) / 2;
+    const minX = rect.left + rect.width * inset;
+    const maxX = rect.right - rect.width * inset;
+    const minY = rect.top + rect.height * inset;
+    const maxY = rect.bottom - rect.height * inset;
+    if (x < minX || x > maxX || y < minY || y > maxY) {
+      return null;
+    }
+  }
+
+  return cellFromElement(cellEl);
 }
 
 export function getCellElement(boardEl, row, col) {
